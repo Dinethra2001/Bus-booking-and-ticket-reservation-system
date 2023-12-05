@@ -1,0 +1,21 @@
+
+
+<?php
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "safetravel";
+
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+$SID = $_GET["BusId"];
+$sql = "DELETE FROM `buses` WHERE `BusId` = '$SID'";
+$result = mysqli_query($conn, $sql);
+if ($result) {
+header("Location: viewRoute.php?msg=Bus deleted successfully");
+} else {
+echo "Failed: " . mysqli_error($conn);
+}
+
+
+
+?>
